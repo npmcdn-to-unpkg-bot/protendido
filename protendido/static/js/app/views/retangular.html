@@ -1,0 +1,177 @@
+<div flex="60" flex-offset="20" ng-controller="RetangularController as RectCtrl">
+<a href="/#/">Voltar </a>
+    <h1>Seção Retangular</h1>
+    
+    
+    <form name="retangularForm" flex >
+        <md-input-container >
+            <label> Altura da seção retangular </label>
+            <input name="h" ng-model="h" required ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            <div ng-messages="contactForm.h.$error.pattern" ng-show="retangularForm.h.$dirty">
+                <span ng-show="retangularForm.h.$error.pattern">Somente aceita números positivos!</span>
+                <span ng-show="retangularForm.h.$error.required">Campo em branco!</span>
+            </div>
+        </md-input-container>
+        
+        <md-input-container >
+            <label> Largura da seção retangular </label>
+            <input name="by" ng-model="by" required ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            <div ng-messages="contactForm.by.$error.pattern" ng-show="retangularForm.by.$dirty">
+                <span ng-show="retangularForm.h.$error.pattern">Somente aceita números positivos!</span>
+                <span ng-show="retangularForm.h.$error.required">Campo em branco!</span>
+            </div>
+        </md-input-container>
+        
+        <md-input-container >
+            <label> Fck do concreto</label>
+            <input name="fck" ng-model="fck" required ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            <div ng-messages="contactForm.fck.$error.pattern" ng-show="retangularForm.fck.$dirty">
+                <span ng-show="retangularForm.h.$error.pattern">Somente aceita números positivos!</span>
+                <span ng-show="retangularForm.h.$error.required">Campo em branco!</span>
+            </div>
+        </md-input-container>
+        
+        <md-input-container >
+            <label> Área da armadura ativa </label>
+            <input name="Ap" ng-model="Ap" required ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            <div ng-messages="contactForm.Ap.$error.pattern" ng-show="retangularForm.Ap.$dirty">
+                <span ng-show="retangularForm.h.$error.pattern">Somente aceita números positivos!</span>
+                <span ng-show="retangularForm.h.$error.required">Campo em branco!</span>
+            </div>
+        </md-input-container>
+        
+        <md-input-container >
+            <label> Área da armadura passiva </label>
+            <input name="As" ng-model="As" required ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            <div ng-messages="contactForm.As.$error.pattern" ng-show="retangularForm.As.$dirty">
+                <span ng-show="retangularForm.h.$error.pattern">Somente aceita números positivos!</span>
+                <span ng-show="retangularForm.h.$error.required">Campo em branco!</span>
+            </div>
+        </md-input-container>
+        
+        <md-input-container >
+            <label> Força de protensão </label>
+            <input name="Pn" ng-model="Pn" required ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            <div ng-messages="contactForm.Pn.$error.pattern" ng-show="retangularForm.Pn.$dirty">
+                <span ng-show="retangularForm.h.$error.pattern">Somente aceita números positivos!</span>
+                <span ng-show="retangularForm.h.$error.required">Campo em branco!</span>
+            </div>
+        </md-input-container>
+        
+        
+        <md-input-container >
+            <label> Posição da armadura ativa </label>
+            <input name="As" ng-model="dp" required ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            <div ng-messages="contactForm.dp.$error.pattern" ng-show="retangularForm.dp.$dirty">
+                <span ng-show="retangularForm.h.$error.pattern">Somente aceita números positivos!</span>
+                <span ng-show="retangularForm.h.$error.required">Campo em branco!</span>
+            </div>
+        </md-input-container>
+        
+        <md-input-container >
+            <label> Posição da armadura passiva </label>
+            <input name="ds" ng-model="ds" required ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            <div ng-messages="contactForm.ds.$error.pattern" ng-show="retangularForm.ds.$dirty">
+                <span ng-show="retangularForm.h.$error.pattern">Somente aceita números positivos!</span>
+                <span ng-show="retangularForm.h.$error.required">Campo em branco!</span>
+            </div>
+        </md-input-container>
+        
+        <md-input-container >
+            <label> Tensão de protensão </label>
+            <input name="sigma_pn" ng-model="sigma_pn" required ng-pattern="/^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$/">
+            <div ng-messages="contactForm.sigma_pn.$error.pattern" ng-show="retangularForm.sigma_pn.$dirty">
+                <span ng-show="retangularForm.h.$error.pattern">Somente aceita números positivos!</span>
+                <span ng-show="retangularForm.h.$error.required">Campo em branco!</span>
+            </div>
+        </md-input-container>
+
+        <br>
+        
+        <md-button type="submit" class="md-primary"
+                           ng-class="{'md-raised md-hue-1': (retangularForm.$dirty && retangularForm.$valid) }"
+                           aria-label="Save Project" ng-click="RectCtrl.evaluate()">Calcular</md-button>
+
+    </form>
+    
+    <h1>Resultados</h1>
+    
+    <md-table-container>
+  <table md-table>
+    <thead md-head >
+      <!-- when the user clicks this cell, the myOrder variable will get the value 'nameToLower' -->
+      <th md-column >Dados</th>
+      <!-- the variable myOrder will not be changed when this cell is clicked -->
+      <th md-column md-numeric></th>
+    </thead>
+    <tbody md-body>
+      <!-- we can let ng-repeat sort the columns for us -->
+        <tr md-row>
+            <td md-cell>Fctm</td> <td>{{fctm}} Mpa</td>
+        </tr>
+        
+        <tr md-row>
+            <td md-cell>Linha Neutra</td> <td>{{linha_neutra}} cm</td>
+        </tr>
+        
+        <tr md-row>
+            <td md-cell>Z_c</td> <td>{{Z_c}} cm</td>
+        </tr>
+        
+        <tr md-row>
+            <td md-cell>Z_p</td> <td>{{Z_p}} cm</td>
+        </tr>
+        
+        <tr md-row>
+            <td md-cell>Z_s</td> <td>{{Z_s}} cm</td>
+        </tr>
+        
+        <tr md-row>
+            <td md-cell>R_pt</td> <td>{{R_pt}} KN.cm</td>
+        </tr>
+        
+        <tr md-row>
+            <td md-cell>R_st</td> <td>{{R_st}} KN.cm</td>
+        </tr>
+        
+        <tr md-row>
+            <td md-cell>R_ct</td> <td>{{R_ct}} KN.cm</td>
+        </tr>
+        
+        <tr md-row>
+            <td md-cell>M_r</td> <td>{{M_r}} KN.m</td>
+        </tr>
+        
+        
+    </tbody>
+  </table>
+</md-table-container>
+    
+    
+</div>
+
+<style>
+    
+    table {
+        width:100%;
+        margin-bottom: 30px;
+    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    table#t01 tr:nth-child(even) {
+        background-color: #eee;
+    }
+    table#t01 tr:nth-child(odd) {
+        background-color:#fff;
+    }
+    table#t01 th {
+        background-color: black;
+        color: white;
+    }
+</style>

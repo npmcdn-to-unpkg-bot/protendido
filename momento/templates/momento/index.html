@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html ng-app="protendidoApp">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title> {% block title %} M Fissuração{% endblock %}</title>
+
+        <script src="{%static "js/init/jquery.js" %}"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="{% static "js/angular-material/angular-material.min.css" %}">
+        <link rel="stylesheet" href="{% static "js/angular-material/angular-material.min.css" %}">
+
+    </head >
+
+
+    <body >
+
+        <md-toolbar>
+            <h1>Concreto protendido</h1>
+        </md-toolbar>
+
+        <ng-view>
+
+        </ng-view>
+
+
+
+
+
+        <!-- Angular files -->
+        <script src="{% static "js/angular156/angular.min.js" %}"></script>
+        <script src="{% static "js/angular156/angular-resource.min.js" %}"></script>
+        <script src="{% static "js/angular156/angular-route.min.js" %}"></script>
+
+        <script src="{% static "js/angular156/angular-messages.min.js" %}"></script>
+        <script src="{% static "js/angular156/angular-animate.min.js" %}"></script>
+        <script src="{% static "js/angular156/angular-aria.min.js" %}"></script>
+
+        <!-- Angular Material Javascript using GitCDN to load directly from `bower-material/master` -->
+        <script src="{% static "js/angular-material/angular-material.min.js" %}"></script>
+
+
+
+
+
+        <script src="{%static "js/init/app.js" %}"></script>
+
+    <!--    <script src="{%static "js/init/init.js" %}"></script> -->
+
+        <!-- custum controllers -->
+       <script src="{%static "js/app/controllers/AppController.js" %}"></script>
+        <script src="{%static "js/app/controllers/RetangularController.js" %}"></script>
+        <script src="{%static "js/app/controllers/TeController.js" %}"></script>
+
+    </body>
+
+</html>
